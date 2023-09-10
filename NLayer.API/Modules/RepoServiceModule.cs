@@ -33,7 +33,7 @@ namespace NLayer.API.Modules
 
             builder.RegisterAssemblyTypes(apiAssembly, repoAssembly, serviceAssembly).Where(x => x.Name.EndsWith("Service")).AsImplementedInterfaces().InstancePerLifetimeScope();
 
-            builder.RegisterType<ProductServiceWithCatching>().As<IProductService>();
+            //builder.RegisterType<ProductServiceWithCatching>().As<IProductService>();
 
             //InstancePerLifeTimeScope => Scope
             //InstancePerDependency => Transient
