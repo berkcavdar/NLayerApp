@@ -23,7 +23,7 @@ namespace NLayer.Service.Services
             var category = await _categoryRepository.GetSingleCategoryByIdWithProductAsync(categoryId);
             var categoryDto = _mapper.Map<CategoryWithProductsDTO>(category);
 
-            return CustomResponseDTO<CategoryWithProductsDTO>.Success(200,categoryDto);
+            return CustomResponseDTO<CategoryWithProductsDTO>.Success(200, categoryDto);
         }
     }
 }
