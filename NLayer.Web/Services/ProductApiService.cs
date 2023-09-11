@@ -1,5 +1,4 @@
 ﻿using NLayer.Core.DTOs;
-using System.Net.Http.Json;
 
 namespace NLayer.Web.Services
 {
@@ -19,6 +18,15 @@ namespace NLayer.Web.Services
             return response.Data;
         }
 
+        public async Task<ProductDTO> GetByIdAsync(int id)
+        {
+
+            var response = await _httpClient.GetFromJsonAsync<CustomResponseDTO<ProductDTO>>($"products/{id}");
+            return response.Data;
+
+
+        }
+
         public async Task<ProductDTO> SaveAsync(ProductDTO newProduct)
         {
             var response = await _httpClient.PostAsJsonAsync("products", newProduct);
@@ -28,25 +36,25 @@ namespace NLayer.Web.Services
             var responseBody = await response.Content.ReadFromJsonAsync<CustomResponseDTO<ProductDTO>>();
 
             return responseBody.Data;
-        }
 
-        public async Task<ProductDTO> GetByIdAsync(int id)
-        {
-            var response = await _httpClient.GetFromJsonAsync<CustomResponseDTO<ProductDTO>>($"products/{id}");
-            return response.Data;
-        }
 
-        public async Task<bool> UpdateAsync(ProductDTO updateProduct)
+        }
+        public async Task<bool> UpdateAsync(ProductDTO newProduct)
         {
-            var response = await _httpClient.PutAsJsonAsync("products", updateProduct);
+            var response = await _httpClient.PutAsJsonAsync("products", newProduct);
+
             return response.IsSuccessStatusCode;
         }
-
         public async Task<bool> RemoveAsync(int id)
         {
             var response = await _httpClient.DeleteAsync($"products/{id}");
-            return response.IsSuccessStatusCode;    
+
+            return response.IsSuccessStatusCode;
         }
+
+
+
+
 
     }
 }

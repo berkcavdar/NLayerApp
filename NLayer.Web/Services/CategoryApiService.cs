@@ -2,7 +2,7 @@
 
 namespace NLayer.Web.Services
 {
-    public class CategoryApiService
+    public class CategoryApiService 
     {
         private readonly HttpClient _httpClient;
 

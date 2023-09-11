@@ -16,6 +16,7 @@ namespace NLayer.Service.Services
     public class ProductServiceWithDto : ServiceWithDto<Product, ProductDTO>, IProductServiceWithDto
     {
         private readonly IProductRepository _repository;
+
         public ProductServiceWithDto(IGenericRepository<Product> genericRepository, IUnitOfWork unitOfWork, IMapper mapper, IProductRepository repository) : base(genericRepository, unitOfWork, mapper)
         {
             _repository = repository;

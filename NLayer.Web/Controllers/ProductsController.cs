@@ -8,7 +8,7 @@ using NLayer.Web.Services;
 
 namespace NLayer.Web.Controllers
 {
-    [ServiceFilter(typeof(NotFoundFilter<Product>))]   
+    //[ServiceFilter(typeof(NotFoundFilter<Product>))]
     public class ProductsController : Controller
     {
         private readonly ProductApiService _productApiService;
